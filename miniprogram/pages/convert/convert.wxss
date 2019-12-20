@@ -1,1 +1,66 @@
 /**convert.wxss**/
+.introText {
+  text-align: center;
+  color: #111;
+  margin-top: 56rpx;
+  margin-bottom: 24rpx;
+}
+
+.textDiv {
+  text-align: center;
+}
+
+.convertContainer {
+  padding: 72rpx;
+  font-size: 14px;
+}
+.copyBorad {
+  margin-top: 48rpx;
+  background-color: #ff5400;
+  color: white;
+  height: 24rpx;
+  border-radius: 48rpx;
+}
+
+.preview {
+  margin-top: 48rpx;
+  background-color: white;
+  border: 1px solid #ff5400;
+  color: #ff5400;
+  height: 24rpx;
+  border-radius: 48rpx;
+}
+
+.downloadFromCloud {
+  margin-top: 48rpx;
+  background-color: white;
+  border: 1px solid #ff5400;
+  color: #ff5400;
+  height: 24rpx;
+  border-radius: 48rpx;
+}
+
+.progressLab {
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.progressText {
+  display: inline-block;
+  vertical-align: middle;
+  height: 28px;
+  line-height: 28px;
+  margin-left: 24rpx;
+  font-size: 28rpx;
+}
+
+.passLabel {
+  color: #333;
+  margin: 0rpx 12rpx;
+}
+
+.extensionText {
+  border: 1rpx solid black;
+  padding: 0rpx 8rpx;
+}

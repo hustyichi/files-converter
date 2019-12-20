@@ -79,4 +79,19 @@ Page({
       },
     });
   },
+
+  tapNavigateToSelectPage: function (e) {
+    wx.navigateBack({
+      success: function (e) {
+        console.log('success back to step 1 from cancel');
+      },
+    });
+  },
+
+  tapSelectNewConvertType: function (e) {
+    const extension = utils.getExtension(this.data.fileName);
+    this.setData({
+      selectedConvertType: extensionDict[extension][e.currentTarget.dataset.index],
+    });
+  },
 });

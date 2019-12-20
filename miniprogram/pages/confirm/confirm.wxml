@@ -1,6 +1,15 @@
-<text>可以转换的类型</text>
-
-<button class="preview" bindtap="tapNavigateToConvertPage"> 开始 </button>
-<mp-dialog title="{{dialog.title}}" show="{{dialog.show}}" bindbuttontap="tapDialogButton" buttons="{{dialog.buttons}}">
-  <view>{{dialog.message}}</view>
-</mp-dialog>
+<view class="confirmContainer">
+  <text class="fromTitle">From</text>
+  <block>
+    <text class="fromName">{{fileName}}</text>
+    <icon type="cancel" size="12" color="#ff5400" bindtap="tapNavigateToSelectPage" />
+  </block>
+  <text class="ToTitle">To</text>
+  <view class="convertPart">
+    <view wx:for="{{convertType}}" class="{{item === selectedConvertType ? 'convert selected' : 'convert'}}" bindtap="tapSelectNewConvertType" data-index="{{index}}">{{item}}</view>
+  </view>
+  <button class="preview" bindtap="tapNavigateToConvertPage"> 开始 </button>
+  <mp-dialog title="{{dialog.title}}" show="{{dialog.show}}" bindbuttontap="tapDialogButton" buttons="{{dialog.buttons}}">
+    <view>{{dialog.message}}</view>
+  </mp-dialog>
+</view>
