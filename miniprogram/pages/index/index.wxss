@@ -1,0 +1,12 @@
+/**index.wxss**/
+.copyBorad {
+  margin-top: 32rpx;
+}
+
+.preview {
+  margin-top: 16rpx;
+}
+
+.uploadToCloud {
+  margin-top: 16rpx;
+}
