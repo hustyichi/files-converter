@@ -12,7 +12,7 @@ Page({
   cb: function(res) {
     this.setData({
       convertedUrl: res.data.Files[0].Url,
-    })
+    });
   },
 
   chooseFile: function() {
@@ -28,7 +28,16 @@ Page({
         const tmpFileName = tmpFile.name;
         const tmpFilePath = tmpFile.path;
 
-        _this.convertFile(tmpFilePath, tmpFileName, 'pdf', _this.cb);
+        _this.setData({
+          uploadFileName: tmpFileName,
+          localFilePath: tmpFilePath,
+        });
+        wx.navigateTo({
+          url: '../confirm/confirm',
+          success: function (res) {
+            res.eventChannel.emit('confirmPageParams', { name: _this.data.uploadFileName, path: _this.data.localFilePath });
+          },
+        });
       }
     });
   },

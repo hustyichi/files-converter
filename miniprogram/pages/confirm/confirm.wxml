@@ -1,0 +1,6 @@
+<text>可以转换的类型</text>
+
+<button class="preview" bindtap="tapNavigateToConvertPage"> 开始 </button>
+<mp-dialog title="{{dialog.title}}" show="{{dialog.show}}" bindbuttontap="tapDialogButton" buttons="{{dialog.buttons}}">
+  <view>{{dialog.message}}</view>
+</mp-dialog>

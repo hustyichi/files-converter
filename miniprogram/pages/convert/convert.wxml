@@ -1,0 +1,5 @@
+<view>正在上传中，请耐心等待～</view>
+
+<mp-dialog title="{{dialog.title}}" show="{{dialog.show}}" bindbuttontap="tapDialogButton" buttons="{{dialog.buttons}}">
+  <view>{{dialog.message}}</view>
+</mp-dialog>
