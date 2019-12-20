@@ -1,7 +1,7 @@
 <view class="confirmContainer">
   <text class="fromTitle">From</text>
   <block>
-    <text class="fromName">{{fileName}}</text>
+    <text class="fromName">{{type == 'file' ? fileName : webUrl}}</text>
     <icon type="cancel" size="12" color="#ff5400" bindtap="tapNavigateToSelectPage" />
   </block>
   <text class="ToTitle">To</text>

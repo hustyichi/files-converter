@@ -35,7 +35,11 @@ Page({
         wx.navigateTo({
           url: '../confirm/confirm',
           success: function (res) {
-            res.eventChannel.emit('confirmPageParams', { name: _this.data.uploadFileName, path: _this.data.localFilePath });
+            res.eventChannel.emit("confirmPageParams", {
+              name: _this.data.uploadFileName,
+              path: _this.data.localFilePath,
+              type: 'file',
+            });
           },
         });
       }

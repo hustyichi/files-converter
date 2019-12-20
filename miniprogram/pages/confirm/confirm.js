@@ -6,12 +6,15 @@ const extensionDict = {
   xlsx: ['pdf', 'png'],
   jpg: ['pdf'],
   pdf: ['png'],
+  web: ['pdf'],
 };
 
 Page({
   data: {
     fileName: '',
     filePath: '',
+    webUrl: '',
+    type: 'file',
     dialog: {
       show: false,
       title: 'Oh!NO!',
@@ -26,12 +29,21 @@ Page({
     const _this = this;
     const evnetChannel = this.getOpenerEventChannel();
     evnetChannel.on('confirmPageParams', function (data) {
-      const { name, path } = data;
+      const { name, path, url, type } = data;
       _this.setData({
-        fileName: name,
-        filePath: path,
+        fileName: name || '',
+        filePath: path || '',
+        webUrl: url || '',
+        type: type,
       });
-      _this.validConvertType(name);
+      if (type === 'file') {
+        _this.validConvertType(name);
+      } else {
+        _this.setData({
+          convertType: extensionDict['web'],
+          selectedConvertType: extensionDict['web'][0],
+        })
+      }
     });
   },
 
@@ -74,7 +86,10 @@ Page({
         res.eventChannel.emit("convertPageParams", {
           name: _this.data.fileName,
           path: _this.data.filePath,
-          convertType: _this.data.selectedConvertType
+          webUrl: _this.data.webUrl,
+          type: _this.data.type,
+
+          convertType: _this.data.selectedConvertType,
         });
       },
     });

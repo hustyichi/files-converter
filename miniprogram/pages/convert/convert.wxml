@@ -1,6 +1,6 @@
 <view class="convertContainer">
   <div class="textDiv">
-    <view>{{originFile.name}}</view>
+    <view class="fileName">{{originFile.type == 'file' ? originFile.name : originFile.webUrl}}</view>
     <view>
       <text class="extensionText">{{originFile.extension}}</text>
       >>
@@ -24,7 +24,6 @@
     <icon class="progressText" type="success" wx:if="processDone"></icon> -->
   </div>
   <button class="copyBorad" bindtap="copyToClipBoard" disabled="{{!convertedFile.downloadUrl}}"> 复制链接 </button>
-  <button class="downloadFromCloud" bindtap="downLoadFromCloud" disabled="{{!convertedFile.tempFilePath}}"> 下载文件 </button>
   <button class="preview" bindtap="previewFile" disabled="{{!convertedFile.tempFilePath}}"> 预览文件 </button>
 
   <mp-dialog title="{{dialog.title}}" show="{{dialog.show}}" bindbuttontap="tapDialogButton" buttons="{{dialog.buttons}}">

@@ -8,6 +8,8 @@ Page({
       extension: '',
       path: '',
       convertType: '',
+      webUrl: '',
+      type: 'file',
     },
     convertedFile: {
       name: '',
@@ -35,12 +37,19 @@ Page({
     const _this = this;
     const evnetChannel = this.getOpenerEventChannel();
     evnetChannel.on('convertPageParams', function (data) {
-      const { name, path, convertType } = data;
-      const extension = utils.getExtension(name);
+      const { name, path, convertType, webUrl, type } = data;
+      let extension = 'web';
+      if (type == 'file') {
+        extension = utils.getExtension(name);
+      }
       _this.setData({
-        originFile: { name, path, convertType, extension },
+        originFile: { name, path, convertType, extension, webUrl, type },
       });
-      _this.convertFile(name, path, convertType);
+      if (type == 'file') {
+        _this.convertFile(name, path, convertType);
+      } else {
+        _this.convertWeb(webUrl, convertType)
+      }
     });
   },
 
@@ -164,6 +173,31 @@ Page({
           fail: _this.onConvertedFail,
         });
       },
+    });
+  },
+
+  convertWeb: function (url, convertType) {
+    const _this = this;
+    const prevType = "web";
+    const requestUrl = `${utils.requestUrl}/convert/${prevType}/to/${convertType}?Secret=Y2qbHnYrTZj1aX8t`;
+
+    wx.request({
+      url: requestUrl,
+      data: {
+        Parameters: [
+          {
+            Name: 'Url',
+            Value: url,
+          },
+          {
+            Name: 'StoreFile',
+            Value: 'true',
+          },
+        ],
+      },
+      method: 'POST',
+      success: _this.onConvertedDone,
+      fail: _this.onConvertedFail,
     });
   },
 

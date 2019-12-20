@@ -16,6 +16,11 @@
 .fromName {
   padding-left: 72rpx;
   padding-right: 12rpx;
+  display: inline-block;
+  width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .ToTitle {
