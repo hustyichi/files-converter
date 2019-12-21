@@ -26,10 +26,10 @@
   margin-top: 48rpx;
   background-color: #f65452;
   color: white;
-  height: 24rpx;
-  border-radius: 48rpx;
+  height: 100rpx;
+  line-height: 70rpx;
+  border-radius: 50rpx;
   font-weight: normal;
-
 }
 
 .preview {

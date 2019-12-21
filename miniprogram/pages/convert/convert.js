@@ -1,5 +1,8 @@
 const utils = require('../../utils/util.js');
 const app = getApp();
+const supportType = [
+  'doc', 'docx', 'xls', 'xlsx', 'pdf', 'ppt', 'pptx'
+];
 
 Page({
   data: {
@@ -18,7 +21,7 @@ Page({
       downloadUrl: '',
       tempFilePath: '',
     },
-    converting: 1,
+    validPreview: false,
     process: {
       percent: 40,
       duration: 750,
@@ -44,6 +47,7 @@ Page({
       }
       _this.setData({
         originFile: { name, path, convertType, extension, webUrl, type },
+        validPreview: supportType.indexOf(convertType) != -1,
       });
       if (type == 'file') {
         _this.convertFile(name, path, convertType);
