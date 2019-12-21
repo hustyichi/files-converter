@@ -7,7 +7,7 @@ const extensionDict = {
   pptx: ['pdf'],
   jpg: ['pdf'],
   pdf: ['png'],
-  web: ['pdf'],
+  web: ['pdf', 'png'],
 };
 
 Page({
@@ -105,9 +105,15 @@ Page({
   },
 
   tapSelectNewConvertType: function (e) {
-    const extension = utils.getExtension(this.data.fileName);
-    this.setData({
-      selectedConvertType: extensionDict[extension][e.currentTarget.dataset.index],
-    });
+    if (this.data.type == 'file') {
+      const extension = utils.getExtension(this.data.fileName);
+      this.setData({
+        selectedConvertType: extensionDict[extension][e.currentTarget.dataset.index],
+      });
+    } else {
+      this.setData({
+        selectedConvertType: extensionDict['web'][e.currentTarget.dataset.index],
+      });
+    }
   },
 });
