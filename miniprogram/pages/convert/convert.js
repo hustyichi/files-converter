@@ -3,6 +3,9 @@ const app = getApp();
 const supportType = [
   'doc', 'docx', 'xls', 'xlsx', 'pdf', 'ppt', 'pptx'
 ];
+const cache_dict = {
+  
+};
 
 Page({
   data: {
@@ -33,6 +36,17 @@ Page({
       message: '',
       buttons: [{text: '确定'}],
     },
+
+  },
+
+  onShareAppMessage: function () {
+    let users = wx.getStorageSync('user');
+    if (res.from === 'button') { }
+    return {
+      title: '转发',
+      path: '/pages/index/',
+      success: function (res) { }
+    }
   },
 
   onLoad: function (option) {
@@ -88,8 +102,72 @@ Page({
     });
   },
 
+  getCacheFileId: function() {
+    let name = this.data.originFile.name;
+    if (this.data.originFile.type == 'web') {
+      name = _this.data.originFile.webUrl;
+    }
+
+    name += '_' + this.data.originFile.convertType;
+
+    console.log('--------> cache name');
+    console.log(name);
+
+    console.log(cache_dict);
+    return cache_dict[name];
+  },
+
+  cacheUpload: function(fileId) {
+    let _this = this;
+    console.log('start cache upload');
+    wx.cloud.downloadFile({
+      fileID: fileId,
+      success: function (res) {
+        var filePath = res.tempFilePath;
+        const convertedFileData = _this.data.convertedFile;
+
+        _this.setData({
+          convertedFile: {
+            ...convertedFileData,
+            tempFilePath: filePath,
+            fileId: fileId,
+          },
+          process: {
+            percent: 95,
+            duration: 300,
+          },
+        });
+
+        wx.cloud.getTempFileURL({
+          fileList: [fileId],
+          success: function (res) {
+            const data = _this.data.convertedFile;
+            console.log(data);
+            _this.setData({
+              convertedFile: {
+                ...data,
+                downloadUrl: res.fileList[0].tempFileURL,
+              },
+              process: { percent: 100, duration: 30 },
+            });
+          },
+        })
+      },
+    })
+  },
+
   rawUploadToCloud: function(convertUrl) {
     const _this = this;
+
+    console.log('------------->')
+    console.log(this.data.originFile.name);
+
+    const cacheFileId = this.getCacheFileId();
+    console.log('Got ' + cacheFileId);
+    if (cacheFileId) {
+      return this.cacheUpload(cacheFileId);
+    }
+
     convertUrl = convertUrl.replace('v2.convertapi.com', 'team02.hackathon.ebincr.com');
     wx.downloadFile({
       url: convertUrl,
@@ -112,6 +190,7 @@ Page({
           cloudPath: _this.data.convertedFile.name,
           filePath: filePath,
           success: res => {
+            console.log('------file id ===>')
             console.log(res.fileID);
             const data = _this.data.convertedFile;
             _this.setData({ convertedFile: { ...data, fileID: res.fileID } });
