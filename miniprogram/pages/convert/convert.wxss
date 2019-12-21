@@ -11,7 +11,7 @@
 }
 
 .fileName {
-  display: inline-block;
+  display: block;
   width: 400rpx;
   overflow: hidden;
   text-overflow: ellipsis;
