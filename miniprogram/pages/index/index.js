@@ -12,7 +12,7 @@ Page({
   cb: function(res) {
     this.setData({
       convertedUrl: res.data.Files[0].Url,
-    })
+    });
   },
 
   chooseFile: function() {
@@ -28,7 +28,20 @@ Page({
         const tmpFileName = tmpFile.name;
         const tmpFilePath = tmpFile.path;
 
-        _this.convertFile(tmpFilePath, tmpFileName, 'pdf', _this.cb);
+        _this.setData({
+          uploadFileName: tmpFileName,
+          localFilePath: tmpFilePath,
+        });
+        wx.navigateTo({
+          url: '../confirm/confirm',
+          success: function (res) {
+            res.eventChannel.emit("confirmPageParams", {
+              name: _this.data.uploadFileName,
+              path: _this.data.localFilePath,
+              type: 'file',
+            });
+          },
+        });
       }
     });
   },
@@ -67,59 +80,4 @@ Page({
       },
     });
   },
-
-  copyToClipBoard: function() {
-    const _this = this;
-    wx.setClipboardData({
-      data: _this.data.convertedUrl,
-    })
-  },
-
-  rawDownloadAndPreviewFile: function(downloadUrl) {
-    downloadUrl = downloadUrl.replace('v2.convertapi.com', 'team02.hackathon.ebincr.com');
-    wx.downloadFile({
-      url: downloadUrl,
-      success(res) {
-        var filePath = res.tempFilePath
-        wx.openDocument({
-          filePath: filePath,
-        })
-      },
-    })
-  },
-
-  downloadAndPreview: function() {
-    this.rawDownloadAndPreviewFile(this.data.convertedUrl);
-  },
-
-  rawUploadToCloud: function(downloadUrl) {
-    downloadUrl = downloadUrl.replace('v2.convertapi.com', 'team02.hackathon.ebincr.com');
-    wx.downloadFile({
-      url: downloadUrl,
-      success(res) {
-        var filePath = res.tempFilePath;
-        console.log(filePath);
-
-        wx.cloud.uploadFile({
-          cloudPath: 'a.pdf',
-          filePath: filePath,
-          success: res => {
-            console.log(res.fileID)
-
-            wx.cloud.downloadFile({
-              fileID: res.fileID,
-              success: res => {
-                console.log(res.tempFilePath);
-              }
-            })
-          }
-        })
-      },
-    })
-  },
-
-  uploadToCloud: function() {
-    this.rawUploadToCloud(this.data.convertedUrl);
-  },
-
 })

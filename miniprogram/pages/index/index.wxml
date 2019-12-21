@@ -1,11 +1,6 @@
 <!--index.wxml-->
 <view class="container">
   <view>
-    <button bindtap="chooseFile"> 获取会话文件 </button>
-    <block wx:if="{{convertedUrl}}">
-      <button class="copyBorad" bindtap="copyToClipBoard"> 复制至剪贴板 </button>
-      <button class="preview" bindtap="downloadAndPreview"> 预览文件 </button>
-      <button class="uploadToCloud" bindtap="uploadToCloud"> 上传至云并下载 </button>
-    </block>
+    <button bindtap="chooseFile" class="selectButton"> 获取会话文件 </button>
   </view>
 </view>

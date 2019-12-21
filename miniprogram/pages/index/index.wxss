@@ -1,12 +1,8 @@
 /**index.wxss**/
-.copyBorad {
-  margin-top: 32rpx;
-}
 
-.preview {
-  margin-top: 16rpx;
-}
-
-.uploadToCloud {
-  margin-top: 16rpx;
+.selectButton {
+  background-color: #ff5400;
+  color: white;
+  height: 24rpx;
+  border-radius: 48rpx;
 }

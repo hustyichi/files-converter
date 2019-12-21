@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/index2",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -12,8 +13,30 @@
     "pages/openapi/callback/callback",
     "pages/openapi/cloudid/cloudid",
     "pages/im/im",
-    "pages/im/room/room"
+    "pages/im/room/room",
+    "pages/confirm/confirm",
+    "pages/convert/convert"
   ],
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#ff5400",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "./images/wenjian.png",
+        "selectedIconPath": "./images/wenjian_HL.png",
+        "text": "文件转换"
+      },
+      {
+        "pagePath": "pages/index/index2",
+        "iconPath": "./images/wangzhan.png",
+        "selectedIconPath": "./images/wangzhan_HL.png",
+        "text": "网址转换"
+      }
+    ]
+  },
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",

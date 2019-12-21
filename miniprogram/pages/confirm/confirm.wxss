@@ -1,0 +1,66 @@
+/**confirm.wxss**/
+.confirmContainer {
+  padding: 72rpx;
+  font-size: 14px;
+}
+
+.fromTitle {
+  display: block;
+  font-weight: bold;
+  font-size: 56rpx;
+  width: 200rpx;
+  height: 100rpx;
+  margin-bottom: 72rpx;
+}
+
+.fromName {
+  padding-left: 72rpx;
+  padding-right: 12rpx;
+  display: inline-block;
+  width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ToTitle {
+  margin-top: 100rpx;
+  display: block;
+  font-weight: bold;
+  font-size: 56rpx;
+  width: 200rpx;
+  height: 100rpx;
+}
+
+.convertPart {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 72rpx;
+  margin-top: 48rpx;
+}
+
+.convert {
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border: 1rpx solid #eb3c3c;
+  border-radius: 12rpx;
+  color: #eb3c3c;
+}
+
+.convert + .convert {
+  margin-left: 24rpx;
+}
+
+.selected {
+  border: 1rpx solid #0088df;
+  color: #0088df;
+}
+
+.preview {
+  background-color: #ff5400;
+  color: white;
+  height: 24rpx;
+  border-radius: 48rpx;
+}

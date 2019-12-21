@@ -1,0 +1,7 @@
+<view class="container urlContainer">
+  <input class="inputUrl" placeholder="输入网址" value="{{inputUrl}}" maxlength="250" bindinput="bindUrlInput" />
+  <button bindtap="tapNavigateToConfirmPage" class="selectButton">网址转换</button>
+  <mp-dialog title="{{dialog.title}}" show="{{dialog.show}}" bindbuttontap="tapDialogButton" buttons="{{dialog.buttons}}">
+    <view>{{dialog.message}}</view>
+  </mp-dialog>
+</view>
