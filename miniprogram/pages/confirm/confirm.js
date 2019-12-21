@@ -4,6 +4,7 @@ const extensionDict = {
   doc: ['pdf', 'png'],
   docx: ['pdf', 'png'],
   xlsx: ['pdf', 'png'],
+  pptx: ['pdf'],
   jpg: ['pdf'],
   pdf: ['png'],
   web: ['pdf'],

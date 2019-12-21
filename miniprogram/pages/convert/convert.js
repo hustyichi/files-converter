@@ -74,8 +74,7 @@ Page({
   },
 
   onConvertedFail: function (res) {
-    const dialogData = this.data.dialog;
-    this.setData({ dialog: { ...dialogData, message: '转换调用失败了 [${res.statusCode}]' } });
+    this.showDialog('转换调用失败了 [${res.statusCode}]');
   },
 
   copyToClipBoard: function() {
@@ -106,20 +105,12 @@ Page({
         });
 
         wx.cloud.uploadFile({
-          cloudPath: 'a.pdf',
+          cloudPath: _this.data.convertedFile.name,
           filePath: filePath,
           success: res => {
             console.log(res.fileID);
             const data = _this.data.convertedFile;
             _this.setData({ convertedFile: { ...data, fileID: res.fileID } });
-
-            // todo 这里需要请求一次 下载链接
-            // wx.cloud.downloadFile({
-            //   fileID: res.fileID,
-            //   success: res => {
-            //     console.log(res.tempFilePath);
-            //   }
-            // });
 
             wx.cloud.getTempFileURL({
               fileList: [res.fileID],
@@ -132,7 +123,7 @@ Page({
                 _this.setData({
                   convertedFile: {
                     ...data,
-                    downloadUrl: res.fileList[0].tempFileURL
+                    downloadUrl: res.fileList[0].tempFileURL,
                   },
                   process: { percent: 100, duration: 30 },
                 });
@@ -208,6 +199,10 @@ Page({
     console.log(_this);
     wx.openDocument({
       filePath: _this.data.convertedFile.tempFilePath,
+      fail: function (res) {
+        console.log(res);
+        _this.showDialog(`文件不支持预览 [${res.errMsg}]`);
+      },
     });
   },
 
@@ -217,5 +212,24 @@ Page({
     }
     this.setData({ processDone: true });
     console.log('process done!!!');
-  }
+  },
+
+  showDialog: function (msg) {
+    const dialogData = this.data.dialog;
+    this.setData({
+      dialog: {...dialogData, show: true, message: msg},
+    });
+  },
+
+  tapDialogButton: function (e) {
+    const dialogData = this.data.dialog;
+    this.setData({
+      dialog: {...dialogData, show: false},
+    });
+    wx.navigateBack({
+      success: function (e) {
+        console.log('success back to step 1');
+      },
+    });
+  },
 });
