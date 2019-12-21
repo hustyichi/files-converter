@@ -5,16 +5,21 @@
 
 .inputUrl {
   display: block;
-  margin-bottom: 48rpx;
+  margin-bottom: 72rpx;
   width: 100%;
-  border: 1px solid #ff5400;
-  padding: 12rpx;
-  border-radius: 12rpx;
+  border: 1px solid #f65452;
+  padding: 12rpx 36rpx;
+  border-radius: 1.4rem;
 }
 
 .selectButton {
-  background-color: #ff5400;
+  background-color: #f65452;
   color: white;
   height: 24rpx;
+  font-weight: normal;
   border-radius: 48rpx;
+}
+
+.placeClass {
+  color: #999;
 }

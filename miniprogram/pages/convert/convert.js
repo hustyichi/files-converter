@@ -67,7 +67,7 @@ Page({
       },
       process: {
         percent: 90,
-        duration: (fileSize / 5000).toFixed(0),
+        duration: (fileSize / 2500).toFixed(0),
       }
     });
     this.rawUploadToCloud(fileData.Url);

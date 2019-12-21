@@ -1,8 +1,11 @@
 /**index.wxss**/
 
 .selectButton {
-  background-color: #ff5400;
+  background-color: #f65452;
   color: white;
-  height: 24rpx;
-  border-radius: 48rpx;
+  width: 600rpx;
+  height: 100rpx;
+  line-height: 70rpx;
+  border-radius: 50rpx;
+  font-weight: normal;
 }

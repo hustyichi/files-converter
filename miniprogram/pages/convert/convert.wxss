@@ -1,7 +1,7 @@
 /**convert.wxss**/
 .introText {
   text-align: center;
-  color: #111;
+  color: #999;
   margin-top: 56rpx;
   margin-bottom: 24rpx;
 }
@@ -24,26 +24,33 @@
 }
 .copyBorad {
   margin-top: 48rpx;
-  background-color: #ff5400;
+  background-color: #f65452;
   color: white;
   height: 24rpx;
   border-radius: 48rpx;
+  font-weight: normal;
+
 }
 
 .preview {
   margin-top: 48rpx;
   background-color: white;
-  border: 1px solid #ff5400;
-  color: #ff5400;
+  border: 1px solid #f65452;
+  color: #f65452;
   height: 24rpx;
   border-radius: 48rpx;
+  font-weight: normal;
+}
+
+.previewInvalid {
+  border: 1px solid #999;
 }
 
 .downloadFromCloud {
   margin-top: 48rpx;
   background-color: white;
-  border: 1px solid #ff5400;
-  color: #ff5400;
+  border: 1px solid #f65452;
+  color: #f65452;
   height: 24rpx;
   border-radius: 48rpx;
 }
@@ -69,6 +76,6 @@
 }
 
 .extensionText {
-  border: 1rpx solid black;
+  color: #333;
   padding: 0rpx 8rpx;
 }

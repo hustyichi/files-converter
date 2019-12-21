@@ -10,7 +10,7 @@
   font-size: 56rpx;
   width: 200rpx;
   height: 100rpx;
-  margin-bottom: 72rpx;
+  margin-bottom: 48rpx;
 }
 
 .fromName {
@@ -24,7 +24,7 @@
 }
 
 .ToTitle {
-  margin-top: 100rpx;
+  margin-top: 90rpx;
   display: block;
   font-weight: bold;
   font-size: 56rpx;
@@ -44,9 +44,9 @@
   height: 100rpx;
   line-height: 100rpx;
   text-align: center;
-  border: 1rpx solid #eb3c3c;
+  border: 1rpx solid #f65452;
   border-radius: 12rpx;
-  color: #eb3c3c;
+  color: #f65452;
 }
 
 .convert + .convert {
@@ -55,11 +55,11 @@
 
 .selected {
   color: white;
-  background-color: #eb3c3c;
+  background-color: #f65452;
 }
 
 .preview {
-  background-color: #ff5400;
+  background-color: #f65452;
   color: white;
   height: 24rpx;
   border-radius: 48rpx;
