@@ -4,7 +4,10 @@ const supportType = [
   'doc', 'docx', 'xls', 'xlsx', 'pdf', 'ppt', 'pptx'
 ];
 const cache_dict = {
-  
+  '美登产学研结合牵头需求_v20181115.pptx_pdf': 'cloud://converter-v56wq.636f-converter-v56wq-1300961948/美登产学研结合牵头需求_v20181115.pdf',
+  '简历.docx_pdf': 'cloud://converter-v56wq.636f-converter-v56wq-1300961948/简历.pdf',
+  'https://mp.weixin.qq.com/s/lDz1FtGD6BBmVVQZFO1nZg_pdf': 'cloud://converter-v56wq.636f-converter-v56wq-1300961948/mp_weixin_qq_com.pdf',
+  'https://news.sina.cn/gj/2019-12-20/detail-iihnzahi8945458.d.html_png': 'cloud://converter-v56wq.636f-converter-v56wq-1300961948/news_sina_cn.png',
 };
 
 Page({
