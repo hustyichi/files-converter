@@ -8,6 +8,7 @@ const cache_dict = {
   '简历.docx_pdf': 'cloud://converter-v56wq.636f-converter-v56wq-1300961948/简历.pdf',
   'https://mp.weixin.qq.com/s/lDz1FtGD6BBmVVQZFO1nZg_pdf': 'cloud://converter-v56wq.636f-converter-v56wq-1300961948/mp_weixin_qq_com.pdf',
   'https://news.sina.cn/gj/2019-12-20/detail-iihnzahi8945458.d.html_png': 'cloud://converter-v56wq.636f-converter-v56wq-1300961948/news_sina_cn.png',
+  'meideng.pptx_pdf':'cloud://converter-v56wq.636f-converter-v56wq-1300961948/meideng.pdf',
 };
 
 Page({
