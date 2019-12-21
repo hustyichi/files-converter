@@ -1,9 +1,9 @@
 <view class="confirmContainer">
   <text class="fromTitle">From</text>
-  <block>
+  <view>
     <text class="fromName">{{type == 'file' ? fileName : webUrl}}</text>
     <icon type="cancel" size="12" color="#ff5400" bindtap="tapNavigateToSelectPage" />
-  </block>
+  </view>
   <text class="ToTitle">To</text>
   <view class="convertPart">
     <view wx:for="{{convertType}}" class="{{item === selectedConvertType ? 'convert selected' : 'convert'}}" bindtap="tapSelectNewConvertType" data-index="{{index}}">{{item}}</view>

@@ -1,6 +1,8 @@
 <view class="convertContainer">
   <div class="textDiv">
-    <view class="fileName">{{originFile.type == 'file' ? originFile.name : originFile.webUrl}}</view>
+    <view>
+      <text class="fileName">{{originFile.type == 'file' ? originFile.name : originFile.webUrl}}</text>
+    </view>
     <view>
       <text class="extensionText">{{originFile.extension}}</text>
       >>
