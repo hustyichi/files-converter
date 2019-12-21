@@ -25,14 +25,14 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "./images/wenjian.png",
-        "selectedIconPath": "./images/wenjian_HL.png",
+        "iconPath": "./images/wj.png",
+        "selectedIconPath": "./images/wj-hover.png",
         "text": "文件转换"
       },
       {
         "pagePath": "pages/index/index2",
-        "iconPath": "./images/wangzhan.png",
-        "selectedIconPath": "./images/wangzhan_HL.png",
+        "iconPath": "./images/url.png",
+        "selectedIconPath": "./images/url-hover.png",
         "text": "网址转换"
       }
     ]
