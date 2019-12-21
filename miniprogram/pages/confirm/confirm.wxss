@@ -54,8 +54,8 @@
 }
 
 .selected {
-  border: 1rpx solid #0088df;
-  color: #0088df;
+  color: white;
+  background-color: #eb3c3c;
 }
 
 .preview {
