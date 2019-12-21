@@ -105,7 +105,7 @@ Page({
   getCacheFileId: function() {
     let name = this.data.originFile.name;
     if (this.data.originFile.type == 'web') {
-      name = _this.data.originFile.webUrl;
+      name = this.data.originFile.webUrl;
     }
 
     name += '_' + this.data.originFile.convertType;
@@ -118,7 +118,7 @@ Page({
   },
 
   cacheUpload: function(fileId) {
-    let _this = this;
+    const _this = this;
     console.log('start cache upload');
     wx.cloud.downloadFile({
       fileID: fileId,
